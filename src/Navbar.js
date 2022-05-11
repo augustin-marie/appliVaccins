@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     navbar: {
       flex: 1,
       flexDirection: 'row',
-      width: '90%',
       justifyContent: 'space-evenly',
       backgroundColor: '#eee',
       borderRadius: 40,

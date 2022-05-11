@@ -1,24 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Appointment from './Appointment';
-import Stock from './Stock';
+import Stock from './Stock/Stock';
 import Settings from './Settings';
-import Home from './Home';
+import Home from './home/Home';
 
 export default function App(props) {
   switch (props.page){
         case 'appointment':
-            return(<Appointment/>)
+            return(<Appointment api_url={props.api_url}/>)
         
         case 'stock':
-            return(<Stock/>)
+            return(<Stock api_url={props.api_url}/>)
         
         case 'settings':
-            return(<Settings/>)
+            return(<Settings api_url={props.api_url}/>)
         
         case 'home':
         default:
-            return(<Home/>)
+            return(<Home api_url={props.api_url}/>)
   }
 }
 
