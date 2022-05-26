@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 
-export default function App() {
+export default function App(props) {
     return (
       <View style={styles.menubar}>
-          <Pressable onPress={() => {console.log("placeholder, button appuyé")}} style={styles.buttonStyle}>
+        <Pressable onPress={() => {props.pagehandler('table')}} style={styles.buttonNew}>
+          <Text>
+            Stock
+          </Text>
+        </Pressable>
+
+          <Pressable onPress={() => {props.pagehandler('new')}} style={styles.buttonTable}>
             <Text>
                 Nouvel arrivage
             </Text>
@@ -22,8 +28,19 @@ const styles = StyleSheet.create({
       padding: 15,
     },
 
-    buttonStyle: {
+    buttonTable: {
       backgroundColor: "#99DFB2",
+      color: 'black',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 6,
+      paddingHorizontal: 16,
+      borderRadius: 4,
+      elevation: 3,
+    },
+
+    buttonNew: {
+      backgroundColor: "#0275d8",
       color: 'black',
       alignItems: 'center',
       justifyContent: 'center',

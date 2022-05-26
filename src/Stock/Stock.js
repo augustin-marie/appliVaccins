@@ -1,21 +1,37 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import MenuBar from './MenuBar';
 import Table from './Table';
+import NewVaccine from './NewVaccin';
 
 export default function App(props) {
+  const [page, setPage] = useState('table')
+
+  function handleChangePage(value) {
+    if (value!=page){
+      setPage(value);
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.menucontainer}>
-        <MenuBar/>
+        <MenuBar pagehandler={handleChangePage}/>
       </View>
-      <View style={styles.tablecontainer}>
-        <Table api_url={props.api_url}/>
+
+      <View style={styles.mainStockContainer}>
+        <ScrollView>
+        {
+          page=="table"?<Table api_url={props.api_url}/>:<NewVaccine api_url={props.api_url}/>
+        }
+        </ScrollView>
       </View>
     </View>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -33,7 +49,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
 
-  tablecontainer: {
+  mainStockContainer: {
     flex: 10,
     width: '100%',
     justifyContent: 'flex-start',

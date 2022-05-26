@@ -16,8 +16,6 @@ export default function App(props) {
      const response = await fetch('http://'+props.api_url+'/api/vaccins');
      const json = await response.json();
      setData(json);
-     console.log("chargement des données de la table")
-     console.log(json);
     } catch (error) {
       setData(null);
     } finally {
@@ -50,9 +48,8 @@ export default function App(props) {
                                 <DataTable.Cell>{element.num_lot}</DataTable.Cell>
                                 <DataTable.Cell>{element.date_peremtion}</DataTable.Cell>
                                 <DataTable.Cell>{element.restant}</DataTable.Cell>
-                            </DataTable.Row> 
+                            </DataTable.Row>
                         )
-                        
                     })
                 }
             </DataTable>
@@ -76,6 +73,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
+        marginBottom: 80,
       },
     
     table: {
