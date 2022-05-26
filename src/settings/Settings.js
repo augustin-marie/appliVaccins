@@ -1,21 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+export default function App(props) {
   return (
     <View style={styles.container}>
       <View style={{flex: 1, width: '100%'}}>
         <Text style={styles.textMenu}>
-          Rendez vous (menu probablement)
+          Paramètres de l'application
         </Text>
       </View>
 
-      <View style={styles.mainAppointmentContainer}>
-        <Text>Page appointment</Text>
+      <View style={styles.parametterContainer}>
+        <Text>param 1</Text>
+        <Text>param 2</Text>
+        <Text>param 3</Text>
       </View>
     </View>
-  )
+  );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -23,6 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'column',
   },
 
   textMenu: {
@@ -33,7 +38,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 
-  mainAppointmentContainer: {
+  parametterContainer: {
     flex: 10,
     backgroundColor: '#fff',
     alignItems: 'center',

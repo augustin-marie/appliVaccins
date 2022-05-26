@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Appointment from './Appointment';
-import Stock from './Stock/Stock';
-import Settings from './Settings';
+import Stock from './stock/Stock';
+import Settings from './settings/Settings';
 import Home from './home/Home';
 
 export default function App(props) {
