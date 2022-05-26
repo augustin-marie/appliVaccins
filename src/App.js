@@ -8,7 +8,7 @@ const optionHeight = StatusBar.currentHeight !== undefined ? StatusBar.currentHe
 
 export default function App() {
   const [page, setPageName] = useState(/*'home'*/'stock')
-  const [url, setUrl] = useState('10.60.44.8:8080')
+  const [url, setUrl] = useState('192.168.1.56:8080')
 
   function handleChange(value) {
     setPageName(value)
