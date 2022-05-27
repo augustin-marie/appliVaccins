@@ -57,9 +57,7 @@ function table(data) {
 
   return (
     <View style={styles.container}>
-      <Text>
-        {isLoading===true ? <Text>Chargement...</Text> : data===null ? <Text>La connexion au serveur a été perdue</Text> : table(data)}
-      </Text>
+      {isLoading===true ? <Text>Chargement...</Text> : data===null ? <Text>La connexion au serveur a été perdue</Text> : table(data)}
     </View>
   )
 }

@@ -10,7 +10,7 @@ export default function App(props) {
     <View style={styles.container}>
       <View style={styles.formBlock}>
         <Text>Patient :</Text>
-        <Text>{props.formData.patient[0]==null?'Non renseigné':props.formData.patient[0]}</Text>
+        <Text>{props.formData.patient==null?'Non renseigné':props.formData.patient.nom + ' ' + props.formData.patient.prenom}</Text>
         <Pressable onPress={() => props.onPageChange('patient')} style={styles.button}>
           <Text>Modifier</Text>
         </Pressable>
@@ -18,7 +18,7 @@ export default function App(props) {
 
       <View style={styles.formBlock}>
           <Text>Médecin: </Text>
-          <Text>{props.formData.employer[0]==null?'Non renseigné':props.formData.employer[0]}</Text>
+          <Text>{props.formData.employer==null?'Non renseigné':props.formData.employer.nom + ' ' + props.formData.employer.prenom}</Text>
           <Pressable onPress={() => props.onPageChange('employer')} style={styles.button}>
             <Text>Modifier</Text>
           </Pressable>
@@ -26,7 +26,7 @@ export default function App(props) {
 
       <View style={styles.formBlock}>
         <Text>Numéro de lot: </Text>
-        <Text>{props.formData.numLot[0]==null?'Non renseigné':props.formData.numLot[0]}</Text>
+        <Text>{props.formData.numLot==null?'Non renseigné':props.formData.numLot}</Text>
         <Pressable onPress={() => props.onPageChange('lot')} style={styles.button}>
           <Text>Modifier</Text>
         </Pressable> 
@@ -34,13 +34,13 @@ export default function App(props) {
 
       <View style={styles.formBlock}>
           <Text>Date du rendez-vous</Text>
-          <Text>{props.formData.dateRdv[0]==null?'Non renseigné':props.formData.dateRdv[0]}</Text>
+          <Text>{props.formData.dateRdv==null?'Non renseigné':props.formData.dateRdv}</Text>
           <DatePicker
             style={{ width: 300 }}
-            date={props.formData.dateRdv[0]}
+            date={props.formData.dateRdv}
             mode="date"
             placeholder={
-                props.formData.dateRdv[0]==null?"JJ-MM-AAAA":props.formData.dateRdv[0]
+                props.formData.dateRdv==null?"JJ-MM-AAAA":props.formData.dateRdv
             }
             format="DD-MM-YYYY"
             minDate={moment().format('DD-MM-YYYY')}
@@ -55,7 +55,7 @@ export default function App(props) {
               },
             }}
             onDateChange={(date) => {
-                props.formData.dateRdv[1](date)
+                props.onDateChange(date)
             }}
           />
       </View>
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 4,
     elevation: 3,
+    marginTop: 5,
   },
 
   formBlock: {
@@ -90,6 +91,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    marginTop: 15,
+    marginTop: 20,
   }
 });

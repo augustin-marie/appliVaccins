@@ -1,9 +1,5 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 
-function funcPlaceholder (btnName = 'default') {
-    console.log('button ' + btnName + ' pressed')
-}
-
 export default function App(props) {
     return (
       <View style={styles.menubar}>

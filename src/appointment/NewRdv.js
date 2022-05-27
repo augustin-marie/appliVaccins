@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import NewRDVForm from './forms/NewRDVForm';
+import SelectPatient from './forms/selectPatient';
+import SelectEmployer from './forms/selectEmployer';
 
 /* Logical component
  * Store the diffrents variables and handle the navigation in the sub-forms
@@ -21,18 +23,24 @@ export default function App(props) {
     const [numLot, setNumLot] = useState(null);
     //annule = false
 
-    //Object with all the props and the setters
+    //Object with all the currently selected values
     const formData = {
-      page: [page, setPage],
-      dateRdv: [dateRdv, setDateRdv],
-      employer: [employer, setEmployer],
-      patient: [patient, setPatient],
-      numLot: [numLot, setNumLot],
+      page: page,
+      dateRdv: dateRdv,
+      employer: employer,
+      patient: patient,
+      numLot: numLot,
     }
 
     switch (page) {
+      case 'patient':
+        return <SelectPatient api_url={props.api_url} onPageChange={setPage} onPatientChange={setPatient} patientName={patient}/>
+
+      case 'employer':
+        return <SelectEmployer api_url={props.api_url} onPageChange={setPage} onEmployerChange={setEmployer} employerName={employer}/>
+
       default:
       case 'main':
-        return <NewRDVForm onPageChange={setPage} formData={formData}/>
+        return <NewRDVForm onPageChange={setPage} onDateChange={setDateRdv} formData={formData}/>
     }
   }
