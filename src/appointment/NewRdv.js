@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Pressable } from 'react-native';
 import NewRDVForm from './forms/NewRDVForm';
 import SelectPatient from './forms/selectPatient';
 import SelectEmployer from './forms/selectEmployer';
+import SelectLot from './forms/selectLot';
 
 /* Logical component
  * Store the diffrents variables and handle the navigation in the sub-forms
@@ -38,6 +39,9 @@ export default function App(props) {
 
       case 'employer':
         return <SelectEmployer api_url={props.api_url} onPageChange={setPage} onEmployerChange={setEmployer} employerName={employer}/>
+      
+      case 'lot':
+        return <SelectLot api_url={props.api_url} onPageChange={setPage} onLotChange={setNumLot} numLot={numLot}/>
 
       default:
       case 'main':

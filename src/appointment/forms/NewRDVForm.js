@@ -26,7 +26,10 @@ export default function App(props) {
 
       <View style={styles.formBlock}>
         <Text>Numéro de lot: </Text>
-        <Text>{props.formData.numLot==null?'Non renseigné':props.formData.numLot}</Text>
+        <Text>{
+          props.formData.numLot==null?'Non renseigné':
+          props.formData.numLot.num_lot + ' (' + props.formData.numLot.id_cat.nom_vaccin + ')'
+        }</Text>
         <Pressable onPress={() => props.onPageChange('lot')} style={styles.button}>
           <Text>Modifier</Text>
         </Pressable> 
@@ -58,6 +61,14 @@ export default function App(props) {
                 props.onDateChange(date)
             }}
           />
+      </View>
+
+      <View style={styles.formBlock}>
+        <Pressable onPress={() => {/*props.onPageChange('main'); props.onLotChange(lot)*/}} style={styles.btnValidate}>
+          <Text>
+            Valider
+          </Text>
+        </Pressable>
       </View>
     </View>
   )
@@ -92,5 +103,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     marginTop: 20,
-  }
+  },
+
+  btnValidate: {
+    backgroundColor: "#007E33",
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 3,
+    paddingHorizontal: 16,
+    borderRadius: 4,
+    elevation: 3,
+  },
 });
