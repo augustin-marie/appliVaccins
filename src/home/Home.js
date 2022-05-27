@@ -35,6 +35,9 @@ export default function App(props) {
       </View>
 
       <View style={styles.mainHomeContainer}>
+        <Text>
+          Connexion à {props.api_url}...
+        </Text>
         {isLoading ? <Text>Tentative de connexion...</Text> : <Text>{data}</Text>}
       </View>
     </View>

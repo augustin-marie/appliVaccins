@@ -7,17 +7,21 @@ import PageLoader from './PageLoader';
 const optionHeight = StatusBar.currentHeight !== undefined ? StatusBar.currentHeight : 0;
 
 export default function App() {
-  const [page, setPageName] = useState(/*'home'*/'settings')
+  const [page, setPageName] = useState(/*'home'*/'appointment')
   const [url, setUrl] = useState('192.168.1.56:8080')
 
   function handleChange(value) {
     setPageName(value)
   }
+
+  function changeUrl(value) {
+    setUrl(value)
+  }
   
   return (
     <View style={styles.container}>
       <View style={styles.pagecontainer}>
-        <PageLoader page={page} api_url={url}/>
+        <PageLoader page={page} api_url={url} onUrlChange={changeUrl}/>
       </View>
       
       <View style={styles.navbar}>

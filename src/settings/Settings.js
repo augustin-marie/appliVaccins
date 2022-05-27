@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default function App(props) {
   return (
@@ -11,9 +11,13 @@ export default function App(props) {
       </View>
 
       <View style={styles.parametterContainer}>
-        <Text>param 1</Text>
-        <Text>param 2</Text>
-        <Text>param 3</Text>
+        <Text>Url ou IP du serveur :</Text>
+        <Text>{'('+props.api_url+')'}</Text>
+        <TextInput
+            //can check with a regex if the api url makes sense
+            onChangeText={(value) => props.onUrlChange(value)}
+            placeholder='XXX.XXX.XXX.XXX:XXXX'
+          />
       </View>
     </View>
   );
@@ -42,7 +46,6 @@ const styles = StyleSheet.create({
     flex: 10,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
     marginTop: 10,
     marginBottom: 80,
   }

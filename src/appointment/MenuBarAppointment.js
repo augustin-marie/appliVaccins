@@ -1,19 +1,23 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 
+function funcPlaceholder (btnName = 'default') {
+    console.log('button ' + btnName + ' pressed')
+}
+
 export default function App(props) {
     return (
       <View style={styles.menubar}>
         <Pressable onPress={() => {props.pagehandler('table')}} style={styles.buttonNew}>
           <Text>
-            Stock
+            Rendez-vous
           </Text>
         </Pressable>
 
-          <Pressable onPress={() => {props.pagehandler('new')}} style={styles.buttonTable}>
-            <Text>
-                Nouvel arrivage
-            </Text>
-          </Pressable>
+        <Pressable onPress={() => {props.pagehandler('new')}} style={styles.buttonTable}>
+          <Text>
+              Nouveau rendez-vous
+          </Text>
+        </Pressable>
       </View>
     );
   }

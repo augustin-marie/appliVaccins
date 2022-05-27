@@ -5,8 +5,6 @@ import { DataTable } from 'react-native-paper';
 
 
 export default function App(props) {
-  const [page, setPage] = useState(1);
-
   //Trying to get Table elements
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -54,7 +52,6 @@ export default function App(props) {
                 }
             </DataTable>
         </View>
-        
     )
   }
 

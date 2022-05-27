@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Appointment from './Appointment';
+import Appointment from './appointment/Appointment';
 import Stock from './stock/Stock';
 import Settings from './settings/Settings';
 import Home from './home/Home';
@@ -14,7 +14,7 @@ export default function App(props) {
             return(<Stock api_url={props.api_url}/>)
         
         case 'settings':
-            return(<Settings api_url={props.api_url}/>)
+            return(<Settings api_url={props.api_url} onUrlChange={props.onUrlChange}/>)
         
         case 'home':
         default:

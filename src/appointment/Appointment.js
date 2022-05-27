@@ -1,15 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import MenuBar from './MenuBar';
-import Table from './Table';
-import NewVaccine from './NewVaccin';
+import TableRDV from './TableRDV';
+import NewRDV from './NewRdv';
+import MenuBarRDV from './MenuBarAppointment';
 
 export default function App(props) {
   const [page, setPage] = useState('table');
-
+  
   function handleChangePage(value) {
-    if (value!=page){
+    if (value!=page) {
       setPage(value);
     }
   }
@@ -17,21 +17,19 @@ export default function App(props) {
   return (
     <View style={styles.container}>
       <View style={styles.menucontainer}>
-        <MenuBar pagehandler={handleChangePage}/>
+        <MenuBarRDV pagehandler={handleChangePage}/>
       </View>
 
-      <View style={styles.mainStockContainer}>
+      <View style={styles.mainAppointmentContainer}>
         <ScrollView>
-        {
-          page=="table"?<Table api_url={props.api_url}/>:<NewVaccine api_url={props.api_url}/>
-        }
+          {
+            page=="table"?<TableRDV api_url={props.api_url}/>:<NewRDV api_url={props.api_url}/>
+          }
         </ScrollView>
       </View>
     </View>
-  );
+  )
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -49,7 +47,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
 
-  mainStockContainer: {
+  mainAppointmentContainer: {
     flex: 10,
     width: '100%',
     justifyContent: 'flex-start',
