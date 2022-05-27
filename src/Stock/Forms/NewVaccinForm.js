@@ -101,7 +101,7 @@ export default function App(props) {
                 label: 'Type du vaccin',
                 value: '',
             }}
-            onValueChange={(value) => {setidCat(value), console.log(idCat)}}
+            onValueChange={(value) => {setidCat(value)}}
             items={vaccin_types}
           />
 
@@ -110,8 +110,6 @@ export default function App(props) {
             placeholder="Numéro de lot"
             keyboardType="numeric"
           />
-
-
 
           <TextInput
             onChangeText={(value) => {

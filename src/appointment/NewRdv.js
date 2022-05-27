@@ -1,27 +1,38 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
+import NewRDVForm from './forms/NewRDVForm';
 
-
+/* Logical component
+ * Store the diffrents variables and handle the navigation in the sub-forms
+*/
 export default function App(props) {
-    //Trying to get vaccine types
+    //Handle API call
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
-    return (
-        <View style={styles.container}>
-            {isLoading===true ? <Text>Chargement...</Text> :data===null ? <Text>La connexion au serveur a été perdue</Text> : <Text>Form</Text>}
-        </View>
-    )
+    //handle sub-forms navigation
+    const [page, setPage] = useState('main')
+
+    //appointment form
+    const [dateRdv, setDateRdv] = useState(null);
+    const [employer, setEmployer] = useState(null);
+    const [patient, setPatient] = useState(null);
+    const [numLot, setNumLot] = useState(null);
+    //annule = false
+
+    //Object with all the props and the setters
+    const formData = {
+      page: [page, setPage],
+      dateRdv: [dateRdv, setDateRdv],
+      employer: [employer, setEmployer],
+      patient: [patient, setPatient],
+      numLot: [numLot, setNumLot],
+    }
+
+    switch (page) {
+      default:
+      case 'main':
+        return <NewRDVForm onPageChange={setPage} formData={formData}/>
+    }
   }
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%'
-    },
-  });
-  

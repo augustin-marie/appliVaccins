@@ -27,7 +27,6 @@ export default function App(props) {
   );
 
 function table(data) {
-  console.log(data["hydra:member"])
   return (
     <View style={styles.table}>
       <DataTable>
