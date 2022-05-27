@@ -64,7 +64,7 @@ export default function App(props) {
       </View>
 
       <View style={styles.formBlock}>
-        <Pressable onPress={() => {/*props.onPageChange('main'); props.onLotChange(lot)*/}} style={styles.btnValidate}>
+        <Pressable onPress={() => {props.onSend()}} style={styles.btnValidate}>
           <Text>
             Valider
           </Text>

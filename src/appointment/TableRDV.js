@@ -32,8 +32,7 @@ function table(data) {
       <DataTable>
         <DataTable.Header>
           <DataTable.Title>Medecin</DataTable.Title>
-          <DataTable.Title>Prenom</DataTable.Title>
-          <DataTable.Title>Nom</DataTable.Title>
+          <DataTable.Title>Patient</DataTable.Title>
           <DataTable.Title>Date</DataTable.Title>
           <DataTable.Title>Status</DataTable.Title>
         </DataTable.Header>
@@ -43,8 +42,8 @@ function table(data) {
             return (
               <DataTable.Row key={index}>
                 <DataTable.Cell>{element.id_employer.nom} {element.id_employer.prenom}</DataTable.Cell>
-                <DataTable.Cell>{element.id_patient.prenom}</DataTable.Cell>
-                <DataTable.Cell>{element.id_patient.nom}</DataTable.Cell>
+                <DataTable.Cell>{element.id_patient.prenom} {element.id_patient.nom}</DataTable.Cell>
+                <DataTable.Cell>{element.date_rdv}</DataTable.Cell>
                 <DataTable.Cell>{element.Annule==true?"annulé":"maintenu"}</DataTable.Cell>
               </DataTable.Row>
             )

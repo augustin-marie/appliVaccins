@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Alert } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import DatePicker from 'react-native-datepicker';
@@ -8,7 +8,7 @@ import moment from 'moment';
 
 
 export default function App(props) {
-  //Handleing form send
+  //Handleing form sending
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [sendCount, setCount] = useState(0); 
@@ -51,7 +51,6 @@ export default function App(props) {
       "tailleLot" : parseInt(taille),
       "idCat" : idCat
     }
-    //alertForm(JSON.stringify(data), 'debug');
 
     sendRequest(data);
   }
