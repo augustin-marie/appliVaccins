@@ -7,7 +7,7 @@ import PageLoader from './PageLoader';
 const optionHeight = StatusBar.currentHeight !== undefined ? StatusBar.currentHeight : 0;
 
 export default function App() {
-  const [page, setPageName] = useState(/*'home'*/'appointment')
+  const [page, setPageName] = useState('home')
   const [url, setUrl] = useState('192.168.1.56:8080')
 
   function handleChange(value) {

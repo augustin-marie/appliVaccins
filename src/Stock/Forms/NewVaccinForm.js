@@ -189,5 +189,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 4,
     elevation: 3,
+    marginTop: 15,
   }
 });

@@ -41,10 +41,9 @@ const styles = StyleSheet.create({
   },
 
   menucontainer: {
-    flex: 1,
+    flex: 0,
     backgroundColor: '#fff',
     width: '100%',
-    height: 50,
   },
 
   mainAppointmentContainer: {

@@ -28,7 +28,7 @@ export default function App(props) {
 
   return (
     <View style={styles.container}>
-      <View style={{flex: 1, width: '100%'}}>
+      <View style={{flex: 0, width: '100%'}}>
         <Text style={styles.textMenu}>
           Page principale
         </Text>
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
   },
 
   textMenu: {
-    flex: 1,
     textAlign: 'center',
     backgroundColor: '#eee',
     padding: 15,

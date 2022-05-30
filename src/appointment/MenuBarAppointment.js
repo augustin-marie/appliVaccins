@@ -20,7 +20,7 @@ export default function App(props) {
   
 const styles = StyleSheet.create({
     menubar: {
-      flex: 1,
+      flex: 0,
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       backgroundColor: '#eee',
